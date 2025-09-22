@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walimatul Urus Faizal & Shasha</title>
+  <!-- Import font khat Arab dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Lateef&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .card {
+      max-width: 500px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+      background-image: url('bg.png'); /* guna file upload sendiri */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    h1 {
+      font-size: 1.6em;
+      color: #a9445c;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    p {
+      margin: 6px 0;
+      font-size: 1em;
+      color: #444;
+    }
+    em {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #777;
+    }
+    .divider {
+      margin: 15px auto;
+      height: 2px;
+      width: 60%;
+      background: #e5b8c2;
+      border-radius: 2px;
+    }
+    .btn {
+      display: inline-block;
+      background: #a9445c;
+      color: #fff;
+      padding: 10px 18px;
+      margin: 6px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.95em;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #872c45;
+    }
+    #music-btn {
+      margin: 15px 0;
+      background: #fff;
+      border: 2px solid #a9445c;
+      color: #a9445c;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    #music-btn:hover {
+      background: #a9445c;
+      color: #fff;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .arabic-bismillah {
+      font-family: 'Amiri Quran', serif;
+      font-size: 1.6em;
+      font-weight: normal;
+      color: #5a2a4c;
+      margin: 12px 0;
+    }
+    .arabic-salam {
+      font-family: 'Lateef', serif;
+      font-size: 1.4em;
+      color: #7a2c5a;
+      margin: 8px 0 16px 0;
+    }
+    .invitation-text {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.85); /* lapisan putih lutsinar */
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.05em;
+    color: #5a2a4c;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Muzik background -->
+  <audio id="bg-music" autoplay loop>
+    <source src="weedingsong.mp3" type="audio/mpeg">
+    <!-- ganti link atas dengan mp3 "A Thousand Years (Wedding Intro)" -->
+  </audio>
+  <button id="music-btn" onclick="toggleMusic()">🎶 Mainkan Lagu</button>
+
+  <div class="card">
+    <p class="arabic-bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</p>
+    <p class="arabic-salam">السلام عليكم ورحمة الله وبركاته</p>
+
+    <h1>Walimatul Urus</h1>
+    <p><strong>Abdul Halim @ Mohd Faizal Bin Said Ali</strong></p>
+    <p>&</p>
+    <p><strong>Nur Sahanaz Syahida Binti Mat Sahimi</strong></p>
+    <div class="divider"></div>
+    <p>Puteri kepada</p>
+    <p><strong>Mat Sahimi Bin Mohamud</strong> & <strong>Yahida Binti Ya’akop</strong></p>
+    <em>Sabtu, 6 Disember 2025 | 16 Jamadilakhir 1447H</em>
+    <div class="divider"></div>
+    <h2>📞 Hubungi Keluarga</h2>
+    <a href="https://wa.me/60172495430" class="btn">Khairy</a>
+    <a href="https://wa.me/601128147477" class="btn">Kethy</a>
+    <a href="https://wa.me/60146690478" class="btn">Kujad</a>
+    <div class="divider"></div>
+    <h2>📍 Lokasi</h2>
+    <a href="https://maps.app.goo.gl/ASANxD1sDhdXTHd99" class="btn">Google Maps</a>
+    <a href="https://waze.com/ul?q=No%2023%20Jalan%201%2F90G%2C%20Blok%2013%20Jalan%20Ikan%20Emas%2C%20Cheras%2C%2056000%20Kuala Lumpur" class="btn">Waze</a>
+    <footer>
+    <p class="invitation-text">
+        Dengan penuh kesyukuran, kami menjemput anda memeriahkan majlis ini. 💖
+    </p>
+</footer>
+
+  </div>
+
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸ Hentikan Lagu";
+      } else {
+        music.pause();
+        btn.textContent = "🎶 Mainkan Lagu";
+      }
+    }
+  </script>
+</body>
+</html>
